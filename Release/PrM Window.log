@@ -1,0 +1,46 @@
+﻿  GUI.cpp
+H:\mc\PrM Window\LauncherCore.h(921,19): warning C4018: “<”: 有符号/无符号不匹配
+H:\mc\PrM Window\LauncherCore.h(945,20): warning C4018: “<”: 有符号/无符号不匹配
+H:\mc\PrM Window\LauncherCore.h(968,61): error C2440: “初始化”: 无法从“const char [38]”转换为“char *”
+H:\mc\PrM Window\LauncherCore.h(968,17): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(125,102): error C2664: “HRSRC FindResourceW(HMODULE,LPCWSTR,LPCWSTR)”: 无法将参数 3 从“char *”转换为“LPCWSTR”
+H:\mc\PrM Window\GUI.cpp(125,86): message : 指向的类型不相关; 转换需要 reinterpret_cast、C 样式强制转换或带圆括号的函数样式强制转换
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\libloaderapi.h(642,1): message : 参见“FindResourceW”的声明
+H:\mc\PrM Window\GUI.cpp(237,54): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(237,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(241,61): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(241,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(245,58): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(245,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(249,59): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(249,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(253,62): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(253,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(257,62): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(257,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(361,27): error C2440: “=”: 无法从“const char [5]”转换为“LPCWSTR”
+H:\mc\PrM Window\GUI.cpp(361,21): message : 指向的类型不相关; 转换需要 reinterpret_cast、C 样式强制转换或带圆括号的函数样式强制转换
+H:\mc\PrM Window\GUI.cpp(379,54): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(379,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(380,63): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(380,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(381,71): error C2664: “BOOL FreeMyResource(UINT,char *,char *)”: 无法将参数 2 从“const char [4]”转换为“char *”
+H:\mc\PrM Window\GUI.cpp(381,27): message : 从字符串文本转换将丢失 const 限定符(请参阅 /Zc:strictStrings)
+H:\mc\PrM Window\GUI.cpp(123,6): message : 参见“FreeMyResource”的声明
+H:\mc\PrM Window\GUI.cpp(382,9): error C2664: “HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)”: 无法将参数 2 从“const char [5]”转换为“LPCWSTR”
+H:\mc\PrM Window\GUI.cpp(382,9): message : 指向的类型不相关; 转换需要 reinterpret_cast、C 样式强制转换或带圆括号的函数样式强制转换
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(4432,1): message : 参见“CreateWindowExW”的声明
+H:\mc\PrM Window\GUI.cpp(414,18): error C2664: “HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)”: 无法将参数 2 从“const char [5]”转换为“LPCWSTR”
+H:\mc\PrM Window\GUI.cpp(414,18): message : 指向的类型不相关; 转换需要 reinterpret_cast、C 样式强制转换或带圆括号的函数样式强制转换
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winuser.h(4432,1): message : 参见“CreateWindowExW”的声明
+H:\mc\PrM Window\GUI.cpp(415,11): error C2664: “HFONT CreateFontW(int,int,int,int,int,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,DWORD,LPCWSTR)”: 无法将参数 14 从“const char [5]”转换为“LPCWSTR”
+H:\mc\PrM Window\GUI.cpp(417,30): message : 指向的类型不相关; 转换需要 reinterpret_cast、C 样式强制转换或带圆括号的函数样式强制转换
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wingdi.h(3782,26): message : 参见“CreateFontW”的声明
