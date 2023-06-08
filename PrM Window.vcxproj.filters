@@ -90,5 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\log4j-patch-agent-1.0.jar" />
+    <None Include="res\mp31.bin">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\Click.mp3" />
   </ItemGroup>
 </Project>

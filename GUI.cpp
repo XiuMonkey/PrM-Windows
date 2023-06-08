@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include <pthread.h>  
 #include <windows.h>
 #include <stdio.h>
 #include <ocidl.h>
@@ -8,22 +9,26 @@
 #include <string>
 #include <shlwapi.h>
 #include <iostream>
-#include <gdiplus.h>
+//#include <gdiplus.h>
 #include "LauncherCore.h"
 #include "resource.h"
 #include "wincodec.h"
 #include <d2d1.h>
 #include <d2d1helper.h>
 #include <dwrite.h>
+#include <mmsystem.h>//播放音频
+#pragma comment(lib, "winmm.lib")//播放音频
 #pragma  comment(lib,"Windowscodecs.lib")
 #pragma comment(lib, "d2d1.lib")
 #pragma comment(lib,"Shlwapi.lib")
-#pragma comment(lib,"gdiplus.lib")
+//#pragma comment(lib,"gdiplus.lib")
 #define SAFE_RELEASE(p) if(p){p->Release() ; p = NULL ;} 
 #define LAUNCH 150
 #define SHIFT 151
 int ad2 = 0;
+int aaaa = 0;
 int ad = 0;
+int ad3 = 0;
 int mbnum2 = 0;
 HDC hdc;
 HDC mdc;
@@ -50,7 +55,7 @@ IWICBitmap* m_pWicBitmap;
 IWICImagingFactory* m_pWicImagingFactory;
 IWICBitmapDecoder* m_pWicDecoder;
 IWICBitmapFrameDecode* m_pWicFrameDecoder;
-
+using namespace std;
 
 VOID MyDraw(HWND hwnd,LPCWSTR c,ID2D1Factory* fac,LONG facx,LONG facy)
 {
@@ -118,9 +123,7 @@ VOID MyDraw(HWND hwnd,LPCWSTR c,ID2D1Factory* fac,LONG facx,LONG facy)
 	SAFE_RELEASE(m_pWicImagingFactory);
 }
 
-
-using namespace std;
-using namespace Gdiplus;
+//using namespace Gdiplus;
 BOOL FreeMyResource(UINT uiResouceName, char* lpszResourceType, char* lpszSaveFileName)
 {
 	HRSRC hRsrc = ::FindResource(GetModuleHandle(NULL), MAKEINTRESOURCE(uiResouceName), lpszResourceType);
@@ -297,8 +300,14 @@ LRESULT CALLBACK ChildWndProc2(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lP
 	}
 	return 0;
 }
+void *playclick(void* args){
+	mciSendString("play data\\01\\Click.mp3", NULL, 0, NULL);
+	return 0;
+}
 LRESULT CALLBACK ChildWndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 {
+	pthread_t tr1;
+	pthread_t tr2;
 	PAINTSTRUCT ps;
 	RECT rt;
 	POINT pt;
@@ -313,26 +322,47 @@ LRESULT CALLBACK ChildWndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lPa
 	rect.top = 0;
 	rect.bottom = 90;
 	rect.right = 160;
-	int aaa;
 	switch (Message)
 	{
-	case WM_MOUSEMOVE:
+	case WM_MOUSEMOVE:	
+		hdcbutton = BeginPaint(MBHWND, &ps);
+		if (ad3 == 0) {
+			pthread_create(&tr1, NULL, playclick, NULL);
+			ad3++;
+		}
 		ad++;
 		GetCursorPos(&pt);
 		TrackMouseEvent(&tme);
 	case WM_MOUSELEAVE:
 		GetCursorPos(&pt2);
+		if (ad == 0) {
+			if (aaaa == 0) {
+				aaaa++;
+			}
+			else {
+				pthread_create(&tr2, NULL, playclick, NULL);
+				ad3 = 0;
+			}
+		}
 		if (!((pt.x == pt2.x)&&(pt.y == pt2.y))){	
 			ad = 0;
 		}
 	case WM_PAINT:
+		FreeMyResource(IDR_MP31, "MP3", "data//01//Click.mp3");
 		if (ad == 0) {
+			if (aaaa == 0) {
+				aaaa++;
+			}
+			else {
+				pthread_create(&tr2, NULL, playclick, NULL);
+				//pthread_exit(&tr2);
+				ad3 = 0;
+			}
 			hdcbutton = BeginPaint(MBHWND, &ps);
 			OnPaintButton1(hdcbutton);
 			EndPaint(MBHWND, &ps);
 		}
 		else {
-			hdcbutton = BeginPaint(MBHWND, &ps);
 			OnPaintButton2(hdcbutton);
 			EndPaint(MBHWND, &ps);
 		}
@@ -349,8 +379,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msgID, WPARAM wParam, LPARAM lParam);
 
 int CALLBACK WinMain(HINSTANCE hIns, HINSTANCE hPreIns, LPSTR lpCmdLine, int nCmdShow) {
 	ULONG_PTR token;
-	GdiplusStartupInput gsi;
-	GdiplusStartup(&token, &gsi, 0);//启用GDIPLUS
+	//GdiplusStartupInput gsi;
+	//GdiplusStartup(&token, &gsi, 0);//启用GDIPLUS
 #pragma region 创建主窗口
 	wc.cbClsExtra = 0;
 	wc.cbWndExtra = 0;
@@ -390,7 +420,7 @@ int CALLBACK WinMain(HINSTANCE hIns, HINSTANCE hPreIns, LPSTR lpCmdLine, int nCm
 		TranslateMessage(&nMsg);//翻译消息
 		DispatchMessage(&nMsg);//派发消息：将消息交给窗口处理函数来处理。
 	}
-	GdiplusShutdown(token);
+	//GdiplusShutdown(token);
 	return 0;                                                                                                            
 }
 
